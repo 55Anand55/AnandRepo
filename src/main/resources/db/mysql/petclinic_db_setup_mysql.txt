@@ -27,3 +27,14 @@
 N.B. the "petclinic" database has to exist for the app to work with the JDBC URL value
 as it is configured by default. This condition is taken care of by the docker-compose
 configuration provided, or by the `schema.sql` if you can run that as root.
+
+
+CREATE DATABASE IF NOT EXISTS petclinic;
+
+ALTER DATABASE petclinic
+  DEFAULT CHARACTER SET utf8
+  DEFAULT COLLATE utf8_general_ci;
+
+GRANT ALL PRIVILEGES ON petclinic.* TO pc@localhost IDENTIFIED BY 'pc';
+
+USE petclinic;
